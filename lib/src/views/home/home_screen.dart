@@ -348,17 +348,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                                               .symmetric(
                                                           vertical: 20),
                                                     ),
-                                                    onPressed: () {
-                                                      _isLoading.value = true;
-                                                      Future.delayed(
-                                                          const Duration(
-                                                              seconds: 2), () {
-                                                        Get.to(
-                                                            const MapScreen());
-                                                        _isLoading.value =
-                                                            false;
-                                                      });
-                                                    },
+                                                    onPressed: () {},
+                                                    // onPressed: () {
+                                                    //   _isLoading.value = true;
+                                                    //   Future.delayed(
+                                                    //       const Duration(
+                                                    //           seconds: 2), () {
+                                                    //     Get.to(
+                                                    //         const MapScreen());
+                                                    //     _isLoading.value =
+                                                    //         false;
+                                                    //   });
+                                                    // },
                                                     child: const Icon(Icons
                                                         .arrow_forward_ios_outlined),
                                                   ),
@@ -434,8 +435,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         padding: const EdgeInsets.symmetric(
                                             vertical: aButtonHeight),
                                       ),
-                                      onPressed: () =>
-                                          Get.to(() => const MapScreen()),
+                                      onPressed: () {},
                                       child: const Icon(
                                           Icons.arrow_forward_ios_outlined),
                                     ),

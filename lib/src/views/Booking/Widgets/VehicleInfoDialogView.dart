@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:flutter_html/style.dart';
 
 class VehicleInfoDialogView extends StatelessWidget {
   const VehicleInfoDialogView({Key? key, required this.category})
@@ -11,14 +12,14 @@ class VehicleInfoDialogView extends StatelessWidget {
     return Html(
       data: category.information,
       style: {
-        'p': Style(fontFamily: 'Poppins', fontSize: FontSize.rem(1.0)),
-        'h1': Style(fontFamily: 'Poppins', fontSize: FontSize.rem(1.1)),
-        'h2': Style(fontFamily: 'Poppins', fontSize: FontSize.rem(1.0)),
-        'h3': Style(fontFamily: 'Poppins', fontSize: FontSize.rem(1.0)),
+        'p': Style(fontFamily: 'Poppins', fontSize: FontSize(1.0)),
+        'h1': Style(fontFamily: 'Poppins', fontSize: FontSize(1.1)),
+        'h2': Style(fontFamily: 'Poppins', fontSize: FontSize(1.0)),
+        'h3': Style(fontFamily: 'Poppins', fontSize: FontSize(1.0)),
         'li': Style(
-          margin: const EdgeInsets.only(left: 10, top: 15),
+          padding: const EdgeInsets.only(left: 10, top: 15),
           fontFamily: 'Poppins',
-          fontSize: FontSize.rem(1.0),
+          fontSize: FontSize(1.0),
         )
       },
     );
