@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:bukk_customer_app/views/widgets/timer_widget.dart';
+import 'package:ambulance_app/src/views/widgets/timer_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'app_button.dart';

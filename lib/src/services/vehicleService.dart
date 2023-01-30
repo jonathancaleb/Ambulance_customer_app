@@ -1,13 +1,12 @@
 import 'dart:convert';
 
-import 'package:bukk_customer_app/constants/Constants.dart' as Constants;
-import 'package:bukk_customer_app/models/VehicleCategory.dart';
-import 'package:bukk_customer_app/models/VehicleSubCategory.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../controllers/BookingController.dart';
+import '../models/VehicleCategory.dart';
+import '../models/VehicleSubCategory.dart';
 
 final bookingController = Get.put(BookingController());
 

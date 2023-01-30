@@ -1,9 +1,8 @@
+import 'package:ambulance_app/src/controllers/BookingController.dart';
 import 'package:get/get.dart';
 
-import 'package:bukk_customer_app/controllers/BookingController.dart';
-import 'package:bukk_customer_app/models/VehicleCategory.dart';
-import 'package:bukk_customer_app/models/VehicleSubCategory.dart';
-
+import '../models/VehicleCategory.dart';
+import '../models/VehicleSubCategory.dart';
 import '../services/vehicleService.dart';
 
 class VehicleController extends GetxController {

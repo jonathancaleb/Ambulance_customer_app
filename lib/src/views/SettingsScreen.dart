@@ -1,6 +1,6 @@
-import 'package:bukk_customer_app/views/widgets/AboutScreen.dart';
-import 'package:bukk_customer_app/views/widgets/ProfileScreen.dart';
-import 'package:bukk_customer_app/views/widgets/paymentScreen.dart';
+import 'package:ambulance_app/src/views/profile/profile_screen.dart';
+import 'package:ambulance_app/src/views/widgets/AboutScreen.dart';
+import 'package:ambulance_app/src/views/widgets/paymentScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 

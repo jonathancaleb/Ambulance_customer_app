@@ -2,11 +2,12 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:bukk_customer_app/Sockets/connection.dart';
-import 'package:bukk_customer_app/constants/Constants.dart' as Constants;
-import 'package:bukk_customer_app/models/ApiResponse.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../constants/constants.dart' as Constants;
+import '../models/ApiResponse.dart';
+import '../sockets/connection.dart';
 
 //Header for the auth requests
 const Map<String, String> headers = {

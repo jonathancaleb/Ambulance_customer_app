@@ -1,13 +1,13 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:bukk_customer_app/controllers/map_controller.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:web_socket_channel/io.dart';
 
 import '../Notifications/booking_notifications.dart';
 import '../controllers/DriverController.dart';
+import '../controllers/map_controller.dart';
 import '../models/driver_data_model.dart';
 import '../models/trip_model.dart';
 

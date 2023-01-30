@@ -24,6 +24,23 @@ class VehicleInfoDialogView extends StatelessWidget {
     );
   }
 
+  // Widget renderHtml() {
+  //   return Html(
+  //     data: category.information,
+  //     style: {
+  //       'p': Style(fontFamily: 'Poppins', fontSize: 14.0),
+  //       'h1': Style(fontFamily: 'Poppins', fontSize: 16.0),
+  //       'h2': Style(fontFamily: 'Poppins', fontSize: 14.0),
+  //       'h3': Style(fontFamily: 'Poppins', fontSize: 14.0),
+  //       'li': Style(
+  //         margin: const EdgeInsets.only(left: 10, top: 15),
+  //         fontFamily: 'Poppins',
+  //         fontSize: 14.0,
+  //       )
+  //     },
+  //   );
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Center(

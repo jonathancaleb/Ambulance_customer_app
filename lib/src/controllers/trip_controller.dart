@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:bukk_customer_app/Network/Sockets.dart';
-import 'package:bukk_customer_app/controllers/map_controller.dart';
+import 'package:ambulance_app/src/controllers/map_controller.dart';
 import 'package:get/get.dart';
 
+import '../Network/Sockets.dart';
 import '../models/driver_data_model.dart';
 import '../Notifications/booking_notifications.dart';
 import '../controllers/DriverController.dart';

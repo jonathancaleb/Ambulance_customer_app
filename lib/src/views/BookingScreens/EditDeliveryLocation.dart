@@ -1,12 +1,12 @@
 import 'dart:convert';
 
-import 'package:bukk_customer_app/controllers/map_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
 import 'package:http/http.dart' as http;
 
 import '../../controllers/BookingController.dart';
+import '../../controllers/map_controller.dart';
 
 class EditDEliveryLocation extends StatefulWidget {
   const EditDEliveryLocation({Key? key}) : super(key: key);

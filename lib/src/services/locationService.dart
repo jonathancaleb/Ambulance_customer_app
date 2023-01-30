@@ -1,12 +1,13 @@
 import 'dart:convert';
 
-import 'package:bukk_customer_app/constants/Constants.dart';
-import 'package:bukk_customer_app/controllers/BookingController.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 import 'package:http/http.dart' as http;
 import 'package:geolocator/geolocator.dart';
+
+import '../constants/Constants.dart';
+import '../controllers/BookingController.dart';
 
 class LocationService {
   final bookingController = Get.put(BookingController());

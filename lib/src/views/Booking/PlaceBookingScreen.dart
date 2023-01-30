@@ -1,21 +1,21 @@
-import 'package:bukk_customer_app/controllers/VehicleController.dart';
-import 'package:bukk_customer_app/controllers/map_controller.dart';
-import 'package:bukk_customer_app/controllers/nav_controller.dart';
-import 'package:bukk_customer_app/views/Booking/Widgets/VehicleInfoDialogView.dart';
-import 'package:bukk_customer_app/views/Booking/Widgets/date_time_picker.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:bukk_customer_app/models/VehicleSubCategory.dart';
-import 'package:bukk_customer_app/services/vehicleService.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 import '../../controllers/BookingController.dart';
+import '../../controllers/VehicleController.dart';
+import '../../controllers/map_controller.dart';
+import '../../controllers/nav_controller.dart';
+import '../../models/VehicleSubCategory.dart';
 import '../../services/BookingService.dart';
+import '../../services/vehicleService.dart';
 import '../places/places_search_view.dart';
+import 'Widgets/VehicleInfoDialogView.dart';
 import 'Widgets/booking_loading_dialog.dart';
+import 'Widgets/date_time_picker.dart';
 
 class PlaceBookingScreen extends StatefulWidget {
   const PlaceBookingScreen({Key? key, required this.controller})

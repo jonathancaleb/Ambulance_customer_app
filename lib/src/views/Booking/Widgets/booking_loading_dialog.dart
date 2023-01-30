@@ -1,12 +1,12 @@
-import 'package:bukk_customer_app/controllers/VehicleController.dart';
-import 'package:bukk_customer_app/views/widgets/timer_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
+import '../../../controllers/VehicleController.dart';
 import '../../../controllers/map_controller.dart';
+import '../../widgets/timer_widget.dart';
 import 'LoadingAnimation.dart';
 
 class BookingDialog extends StatefulWidget {

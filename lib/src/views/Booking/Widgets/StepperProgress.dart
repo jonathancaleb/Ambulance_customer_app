@@ -1,9 +1,9 @@
-import 'package:bukk_customer_app/controllers/nav_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 import '../../../controllers/DriverController.dart';
+import '../../../controllers/nav_controller.dart';
 
 class StepProgress extends StatefulWidget {
   const StepProgress({Key? key}) : super(key: key);

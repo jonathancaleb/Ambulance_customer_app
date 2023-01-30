@@ -1,11 +1,11 @@
 import 'dart:io';
 
-import 'package:bukk_customer_app/services/authService.dart';
-import 'package:bukk_customer_app/views/AuthenticationScreens/PhoneAuthScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../constants/Constants.dart';
+import '../../services/authService.dart';
+import '../authentication/signup_screen.dart';
 import 'file_bottom_modal.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -27,18 +27,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   void initState() {
     getProfileData();
-    
+
     super.initState();
   }
 
   void getProfileData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    
-      firstName = prefs.getString("firstName").toString();
-      lastName = prefs.getString("lastName").toString();
-      email = prefs.getString("email").toString();
-      phoneNUmber = prefs.getString("phoneNumber").toString();
-      fullName = firstName + " " + lastName;
+
+    firstName = prefs.getString("firstName").toString();
+    lastName = prefs.getString("lastName").toString();
+    email = prefs.getString("email").toString();
+    phoneNUmber = prefs.getString("phoneNumber").toString();
+    fullName = firstName + " " + lastName;
     setState(() {});
   }
 
@@ -65,7 +65,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
     final double height = MediaQuery.of(context).size.height;
-    
+
     //getProfileData();
 
     return Container(
@@ -541,7 +541,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                                     MaterialPageRoute(
                                                                         builder:
                                                                             (context) =>
-                                                                                PhoneAuthScreen()))
+                                                                                const SignUp()))
                                                               }
                                                             else
                                                               {

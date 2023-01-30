@@ -1,14 +1,14 @@
 import 'dart:convert';
 
-import 'package:bukk_customer_app/constants/Constants.dart' as Constants;
-import 'package:bukk_customer_app/controllers/trip_controller.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import '../constants/Constants.dart' as Constants;
 import '../controllers/BookingController.dart';
 import '../controllers/DriverController.dart';
 import 'package:get/get.dart';
 
 import '../controllers/map_controller.dart';
+import '../controllers/trip_controller.dart';
 
 final bookingController = Get.put(BookingController());
 final driverController = Get.put(DriverController());

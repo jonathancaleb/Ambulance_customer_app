@@ -1,5 +1,7 @@
-import 'package:bukk_customer_app/views/DashboardScreen.dart';
+// import 'package:bukk_customer_app/views/DashboardScreen.dart';
 import 'package:flutter/material.dart';
+
+import '../DashboardScreen.dart';
 
 class UserAgreementScreen extends StatefulWidget {
   const UserAgreementScreen({Key? key}) : super(key: key);

@@ -1,7 +1,8 @@
 import 'package:bottom_picker/bottom_picker.dart';
-import 'package:bukk_customer_app/controllers/schedule_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../controllers/schedule_controller.dart';
 
 class DateTimePicker extends StatefulWidget {
   DateTimePicker({Key? key}) : super(key: key);

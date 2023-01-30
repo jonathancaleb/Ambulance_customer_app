@@ -1,13 +1,13 @@
 // ignore: file_names
 import 'dart:convert';
 
-import 'package:bukk_customer_app/Network/Sockets.dart';
-import 'package:bukk_customer_app/Notifications/booking_notifications.dart';
-import 'package:bukk_customer_app/constants/Constants.dart';
-import 'package:bukk_customer_app/models/driver_data_model.dart';
-import 'package:bukk_customer_app/models/trip_model.dart';
 import 'package:get/get.dart';
 
+import '../Network/Sockets.dart';
+import '../Notifications/booking_notifications.dart';
+import '../constants/Constants.dart';
+import '../models/driver_data_model.dart';
+import '../models/trip_model.dart';
 import 'map_controller.dart';
 import 'nav_controller.dart';
 

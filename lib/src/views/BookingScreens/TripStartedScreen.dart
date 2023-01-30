@@ -1,11 +1,12 @@
 import 'dart:async';
-import 'package:bukk_customer_app/views/BookingScreens/DriverRatingScreen.dart';
-import 'package:bukk_customer_app/views/widgets/cancel_trip_dialog.dart';
+// import 'package:bukk_customer_app/views/BookingScreens/DriverRatingScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+
+import '../widgets/cancel_trip_dialog.dart';
 
 class TripStartedScreen extends StatefulWidget {
   const TripStartedScreen({Key? key}) : super(key: key);

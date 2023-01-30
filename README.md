@@ -11,7 +11,7 @@ A new Flutter project.
 Download or clone this repo by using the link below:
 
 ```
-https://github.com/BUKK-HL/customer-app.git
+https://github.com/jonathancaleb/Ambulance_customer_app.git
 
 ```
 

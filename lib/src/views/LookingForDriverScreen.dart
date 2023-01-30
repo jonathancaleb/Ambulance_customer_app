@@ -1,4 +1,4 @@
-import 'package:bukk_customer_app/views/BookingScreens/DriverOnTheWay.dart';
+import 'package:ambulance_app/src/views/BookingScreens/DriverOnTheWay.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';

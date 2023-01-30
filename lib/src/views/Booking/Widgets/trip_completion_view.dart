@@ -1,10 +1,11 @@
-import 'package:bukk_customer_app/constants/Constants.dart';
-import 'package:bukk_customer_app/controllers/BookingController.dart';
-import 'package:bukk_customer_app/controllers/DriverController.dart';
-import 'package:bukk_customer_app/models/trip_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
+
+import '../../../constants/Constants.dart';
+import '../../../controllers/BookingController.dart';
+import '../../../controllers/DriverController.dart';
+import '../../../models/trip_model.dart';
 
 class TripCompletionView extends StatefulWidget {
   const TripCompletionView({Key? key}) : super(key: key);

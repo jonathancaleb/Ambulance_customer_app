@@ -1,9 +1,9 @@
-import 'package:bukk_customer_app/views/Booking/home_screen.dart';
-import 'package:bukk_customer_app/views/NotificationsScreen.dart';
-import 'package:bukk_customer_app/views/widgets/MessagesScreen.dart';
+import 'package:ambulance_app/src/views/Booking/home_screen.dart';
+import 'package:ambulance_app/src/views/HistoryScreen.dart';
+import 'package:ambulance_app/src/views/NotificationsScreen.dart';
+import 'package:ambulance_app/src/views/SettingsScreen.dart';
+import 'package:ambulance_app/src/views/widgets/MessagesScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:bukk_customer_app/views/HistoryScreen.dart';
-import 'package:bukk_customer_app/views/SettingsScreen.dart';
 
 class Nav extends StatefulWidget {
   const Nav({Key? key}) : super(key: key);

@@ -1,15 +1,14 @@
-import 'package:bukk_customer_app/controllers/map_controller.dart';
-import 'package:bukk_customer_app/controllers/nav_controller.dart';
-import 'package:bukk_customer_app/views/BookingScreens/EditDeliveryLocation.dart';
-import 'package:bukk_customer_app/views/places/places_search_view.dart';
+import 'package:ambulance_app/src/views/Booking/Widgets/VehicleInfoDialogView.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controllers/BookingController.dart';
+import '../../../controllers/map_controller.dart';
+import '../../../controllers/nav_controller.dart';
 import '../../../models/VehicleCategory.dart';
 import '../../../services/vehicleService.dart';
-import 'VehicleInfoDialogView.dart';
+import '../../places/places_search_view.dart';
 
 class FirstBookingScreen extends StatefulWidget {
   const FirstBookingScreen({Key? key}) : super(key: key);

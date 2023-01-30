@@ -1,16 +1,16 @@
 import 'dart:async';
 
-import 'package:bukk_customer_app/controllers/BookingController.dart';
-import 'package:bukk_customer_app/views/Booking/Widgets/FirstBookingScreen.dart';
-import 'package:bukk_customer_app/views/widgets/maps_widget.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
+import '../../controllers/BookingController.dart';
+import '../../controllers/nav_controller.dart';
+import '../widgets/maps_widget.dart';
 import 'OngoingTripScreen.dart';
 import 'PlaceBookingScreen.dart';
 import '../../controllers/map_controller.dart';
 import '../../services/bukk_exporter.dart';
+import 'Widgets/FirstBookingScreen.dart';
 import 'Widgets/StepperProgress.dart';
-import 'package:bukk_customer_app/controllers/nav_controller.dart';
 
 import 'Widgets/trip_completion_view.dart';
 import 'driver_matched_screen.dart';

@@ -1,4 +1,4 @@
-import 'package:bukk_customer_app/views/widgets/app_button.dart';
+import 'package:ambulance_app/src/views/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 
 class TimerWidget extends StatefulWidget {

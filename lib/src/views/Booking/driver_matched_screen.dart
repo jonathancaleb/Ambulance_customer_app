@@ -1,10 +1,10 @@
-import 'package:bukk_customer_app/constants/Constants.dart';
-import 'package:bukk_customer_app/models/trip_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+import '../../constants/Constants.dart';
 import '../../controllers/BookingController.dart';
 import '../../controllers/DriverController.dart';
+import '../../models/trip_model.dart';
 
 class DriverMatchScreen extends StatefulWidget {
   const DriverMatchScreen({Key? key}) : super(key: key);
