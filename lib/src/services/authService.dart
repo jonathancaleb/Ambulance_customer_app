@@ -195,8 +195,7 @@ Future<String> checkRegistrationStatus() async {
 Future<ApiResponse> loginUser(String username, String password) async {
   try {
     var uri = Uri.parse(Constants.Constants.DEV_LOGIN);
-    var requestBody =
-        jsonEncode({"username": username, "password": password});
+    var requestBody = jsonEncode({"username": username, "password": password});
     //Send otp verification request
     final response = await http.post(uri, headers: headers, body: requestBody);
     if (response.statusCode == 200) {
