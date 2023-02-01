@@ -7,7 +7,7 @@ class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
 
   @override
-  _WelcomeScreenState createState() => _WelcomeScreenState();
+  State<WelcomeScreen> createState() => _WelcomeScreenState();
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
@@ -46,7 +46,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     child: SizedBox(
                       height: screenWidth * 0.15,
                       child: const Image(
-                        image: AssetImage('assets/bukk_logo_large.png'),
+                        image: AssetImage('assets/logo.png'),
                       ),
                     ),
                   ),
@@ -89,7 +89,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   child: SizedBox(
                     height: screenWidth * 0.15,
                     child: const Image(
-                      image: AssetImage('assets/bukk_logo_large.png'),
+                      image: AssetImage('assets/logo.png'),
                     ),
                   ),
                 ),

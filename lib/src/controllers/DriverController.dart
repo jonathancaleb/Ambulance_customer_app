@@ -1,4 +1,5 @@
-// ignore: file_names
+// ignore_for_file: file_names, avoid_print
+
 import 'dart:convert';
 
 import 'package:get/get.dart';
@@ -51,6 +52,7 @@ class DriverController extends GetxController {
             case driverMatchedEvent:
               // create trip model and emit
               tripModel = TripModel.fromJson(Map.from(event));
+              // ignore: todo
               //TODO: implement update trip screen with the dispatch
               updateDriverInformation(
                 tripModel?.driverName ?? '',
@@ -96,7 +98,7 @@ class DriverController extends GetxController {
   }
 
   wserror(err) async {
-    print('socket had error ' + err.toString());
+    print('socket had error $err');
     await reconnect();
   }
 

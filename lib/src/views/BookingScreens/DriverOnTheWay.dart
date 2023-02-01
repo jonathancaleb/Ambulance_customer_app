@@ -9,7 +9,7 @@ class DriverOnTheWayScreen extends StatefulWidget {
   const DriverOnTheWayScreen({Key? key}) : super(key: key);
 
   @override
-  _DriverOnTheWayScreenState createState() => _DriverOnTheWayScreenState();
+  State<DriverOnTheWayScreen> createState() => _DriverOnTheWayScreenState();
 }
 
 class _DriverOnTheWayScreenState extends State<DriverOnTheWayScreen> {

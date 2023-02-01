@@ -1,15 +1,15 @@
-import 'package:ambulance_app/src/views/Booking/home_screen.dart';
+import 'package:ambulance_app/src/views/Booking/ambulance_screen.dart';
 import 'package:ambulance_app/src/views/HistoryScreen.dart';
 import 'package:ambulance_app/src/views/NotificationsScreen.dart';
 import 'package:ambulance_app/src/views/SettingsScreen.dart';
-import 'package:ambulance_app/src/views/widgets/MessagesScreen.dart';
+import 'package:ambulance_app/src/views/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class Nav extends StatefulWidget {
   const Nav({Key? key}) : super(key: key);
 
   @override
-  _NavState createState() => _NavState();
+  State<Nav> createState() => _NavState();
 }
 
 class _NavState extends State<Nav> {
@@ -18,8 +18,8 @@ class _NavState extends State<Nav> {
   final List<Widget> _widgetOptions = <Widget>[
     const HistoryScreen(),
     const NotificationsScreen(),
-    const Home(),
-    const MessageScreen(),
+    const HomeScreen(),
+    const AmbulanceScreen(),
     const SettingsScreen(),
   ];
 

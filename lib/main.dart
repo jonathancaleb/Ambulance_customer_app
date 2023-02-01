@@ -1,7 +1,8 @@
 import 'package:ambulance_app/src/utils/theme/theme.dart';
 import 'package:ambulance_app/src/views/Extra%20screens/chat_screen.dart';
-import 'package:ambulance_app/src/views/authentication/welcome_screen.dart';
+import 'package:ambulance_app/src/views/authentication/signup_screen.dart';
 import 'package:ambulance_app/src/views/home/home_screen.dart';
+import 'package:ambulance_app/src/views/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,8 +24,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       defaultTransition: Transition.leftToRightWithFade,
       transitionDuration: const Duration(milliseconds: 200),
-      //home: const WelcomeScreen(),
-      home: const HomeScreen(),
+      home: const SignUp(),
+      // home: const Splash(),
     );
   }
 }

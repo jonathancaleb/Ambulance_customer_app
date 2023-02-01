@@ -26,7 +26,7 @@ class _TermsOfServiceScreenState extends State<TermsOfServiceScreen> {
           color: Colors.black, //change your color here
         ),
         title: const Image(
-          image: Svg('assets/bukk_logo_large.svg'),
+          image: Svg('assets/logo.png'),
           fit: BoxFit.contain,
         ),
       ),

@@ -1003,7 +1003,7 @@ class _buildPaymentOptionBottomSheet extends StatelessWidget {
             // width: screenWidth * 0.9,
             height: screenHeight * 0.3,
             child: Scrollbar(
-              isAlwaysShown: true,
+              thumbVisibility: true,
               child: ListView.builder(
                   itemCount: 3,
                   itemBuilder: (context, index) {

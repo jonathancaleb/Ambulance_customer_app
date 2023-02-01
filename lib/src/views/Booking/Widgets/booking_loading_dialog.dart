@@ -2,12 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 
 import '../../../controllers/VehicleController.dart';
 import '../../../controllers/map_controller.dart';
 import '../../widgets/timer_widget.dart';
-import 'LoadingAnimation.dart';
 
 class BookingDialog extends StatefulWidget {
   const BookingDialog({Key? key}) : super(key: key);
@@ -39,7 +37,7 @@ class _BookingDialogState extends State<BookingDialog> {
                 physics: const BouncingScrollPhysics(),
                 children: [
                   Image.asset(
-                    'assets/bukk_logo_1.png',
+                    'assets/logo.png',
                     height: 22.0,
                   ),
                   const SizedBox(
@@ -317,10 +315,7 @@ class _BookingDialogState extends State<BookingDialog> {
                                     Padding(
                                       padding: const EdgeInsets.only(top: 5.0),
                                       child: Text(
-                                        "R" +
-                                            vehicleController
-                                                .vehicleSubCategory.fee
-                                                .toString(),
+                                        "R${vehicleController.vehicleSubCategory.fee}",
                                         style: const TextStyle(
                                           color: Color(0xfff1ca2d),
                                           fontSize: 16,

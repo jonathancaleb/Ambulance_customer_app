@@ -2,13 +2,12 @@
 
 import 'dart:async';
 import 'dart:math' show cos, sqrt, asin;
-import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:flutter/services.dart';
 
 import '../models/driver_data_model.dart';
-import '../services/bukk_exporter.dart';
+import '../services/exporter.dart';
 import '../services/secrets.dart';
 
 ///This provides the actual MapController class.
@@ -53,15 +52,15 @@ class MapController extends GetxController {
   List<LatLng> polylineCoordinates = [];
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  BitmapDescriptor? customMarker, destinationMarkerIcon,driverMarkerIcon;
+  BitmapDescriptor? customMarker, destinationMarkerIcon, driverMarkerIcon;
 
   void updateMapController(GoogleMapController controller) {
-    String _mapStyle;
+    String mapStyle;
 
     mapController = controller;
     rootBundle.loadString('assets/map_style.txt').then((string) {
-      _mapStyle = string;
-      mapController.setMapStyle(_mapStyle);
+      mapStyle = string;
+      mapController.setMapStyle(mapStyle);
     });
     update();
   }
@@ -160,7 +159,6 @@ class MapController extends GetxController {
 
   /// Initialize User country code
   /// Used for location search boundary to users location
-  /// TODO:: Alternatively, switch to user country code picked from authentication screens
   /// ! NOT USED switched to _getAddress()
   Future<void> initUserCountryCode() async {
     if (currentPosition.latitude > 0.0 && currentPosition.longitude > 0.0) {
@@ -386,7 +384,8 @@ class MapController extends GetxController {
       );
 
       // Adding the markers to the list
-      markers.removeWhere((element) => element.markerId == MarkerId('me'));
+      markers
+          .removeWhere((element) => element.markerId == const MarkerId('me'));
       markers.add(startMarker);
       print("pickup marker establised");
       markers.add(destinationMarker);
@@ -470,6 +469,7 @@ class MapController extends GetxController {
 
   // Formula for calculating distance between two coordinates
   // https://stackoverflow.com/a/54138876/11910277
+  // ignore: unused_element
   double _coordinateDistance(lat1, lon1, lat2, lon2) {
     var p = 0.017453292519943295;
     var c = cos;
@@ -508,10 +508,10 @@ class MapController extends GetxController {
     if (result.points.isNotEmpty) {
       //remove pre- existent polylineCoordinates
       polylineCoordinates.clear();
-      result.points.forEach((element) {
+      for (var element in result.points) {
         //add pre- existent polylineCoordinates
         polylineCoordinates.add(LatLng(element.latitude, element.longitude));
-      });
+      }
     } else {
       print(result.errorMessage);
     }

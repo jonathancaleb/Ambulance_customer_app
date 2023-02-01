@@ -52,17 +52,19 @@ class _SplashState extends State<Splash> {
   void _checkStatus() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool isLoggedIn = prefs.getBool("isLoggedIn") ?? false;
-    await Utils.handleLocationPermission(context, onComplete: () {
-      navigateRoutes(isLoggedIn);
-    }, onReject: () async {
-      await Future.delayed(const Duration(milliseconds: 2000));
-      if (Platform.isAndroid) {
-        SystemNavigator.pop();
-      } else {
-        exit(0);
-      }
-      // Navigator.popUntil(context, (route) => false);
-    });
+    if (mounted) {
+      await Utils.handleLocationPermission(context, onComplete: () {
+        navigateRoutes(isLoggedIn);
+      }, onReject: () async {
+        await Future.delayed(const Duration(milliseconds: 2000));
+        if (Platform.isAndroid) {
+          SystemNavigator.pop();
+        } else {
+          exit(0);
+        }
+        // Navigator.popUntil(context, (route) => false);
+      });
+    }
   }
 
   void navigateRoutes(isLoggedIn) {

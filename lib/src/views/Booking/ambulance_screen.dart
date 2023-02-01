@@ -8,21 +8,22 @@ import '../widgets/maps_widget.dart';
 import 'OngoingTripScreen.dart';
 import 'PlaceBookingScreen.dart';
 import '../../controllers/map_controller.dart';
-import '../../services/bukk_exporter.dart';
+import '../../services/exporter.dart';
 import 'Widgets/FirstBookingScreen.dart';
 import 'Widgets/StepperProgress.dart';
 
 import 'Widgets/trip_completion_view.dart';
 import 'driver_matched_screen.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class AmbulanceScreen extends StatefulWidget {
+  const AmbulanceScreen({Key? key}) : super(key: key);
 
   @override
-  _HomeState createState() => _HomeState();
+  State<AmbulanceScreen> createState() => _AmbulanceScreenState();
 }
 
-class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
+class _AmbulanceScreenState extends State<AmbulanceScreen>
+    with SingleTickerProviderStateMixin {
   //Inject get controller into home widget
   final bookingController = Get.put(BookingController());
   final getxMapController = Get.put(MapController());

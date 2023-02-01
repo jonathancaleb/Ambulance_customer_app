@@ -1,12 +1,13 @@
+import 'package:ambulance_app/src/views/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controllers/nav_controller.dart';
-import 'Booking/home_screen.dart';
+import 'Booking/ambulance_screen.dart';
 import 'HistoryScreen.dart';
 import 'NotificationsScreen.dart';
 import 'SettingsScreen.dart';
-import 'widgets/MessagesScreen.dart';
+// import 'widgets/MessagesScreen.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -28,8 +29,8 @@ class _DashboardState extends State<Dashboard> {
           children: const [
             HistoryScreen(),
             NotificationsScreen(),
-            Home(),
-            MessageScreen(),
+            HomeScreen(),
+            AmbulanceScreen(),
             SettingsScreen(),
           ],
         ),
@@ -49,8 +50,8 @@ class _DashboardState extends State<Dashboard> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.message),
-            label: 'Messages',
+            icon: Icon(Icons.next_plan_outlined),
+            label: 'Request-Ambulance',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),

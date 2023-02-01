@@ -86,7 +86,7 @@ Future<bool> resendOTPCode() async {
       'Authorization': "Token " + token
     };
 
-    var uri = Uri.parse(Constants.Constants.DEV_RESEND_OTP);
+    var uri = Uri.parse(Constants.Constants.DEV_VERIFY_OTP);
     var requestBody = jsonEncode({"phone_number": phoneNumber});
     //Send otp verification request
     final response = await http.post(uri, headers: headers, body: requestBody);
@@ -112,7 +112,7 @@ Future<bool> logout() async {
       'Authorization': "Token " + token
     };
 
-    var uri = Uri.parse(Constants.Constants.DEV_LOGOUT);
+    var uri = Uri.parse("https://sos-api-qi1b.onrender.com/api/v1/auth/");
     //Send otp verification request
     final response = await http.get(uri, headers: headers);
     if (response.statusCode == 200) {
@@ -175,8 +175,8 @@ Future<String> checkRegistrationStatus() async {
     if (response.statusCode == 200) {
       String registrationstatus =
           json.decode(response.body)["registration_status"];
-      String phoneNumber = json.decode(response.body)["phone_number"];
-      prefs.setString("phoneNumber", phoneNumber);
+      String username = json.decode(response.body)["user_name"];
+      prefs.setString("username", username);
       return registrationstatus;
     } else {
       return "failed";
@@ -187,16 +187,16 @@ Future<String> checkRegistrationStatus() async {
   }
 }
 
-/**
-   * Below this point on, the functions define
-   * The authentication logic for the new authenticatoin flow
-   */
+//= ========================
+// * Below this point on, the functions define
+// * The authentication logic for the new authenticatoin flow
+//= ========================
 
-Future<ApiResponse> loginWithPhoneNumber(String phoneNumber) async {
+Future<ApiResponse> loginUser(String username, String password) async {
   try {
-    var uri = Uri.parse("https://dev-accounts.bukkhl.work/v1/login");
+    var uri = Uri.parse(Constants.Constants.DEV_LOGIN);
     var requestBody =
-        jsonEncode({"phone_number": phoneNumber, "is_driver": false});
+        jsonEncode({"username": username, "password": password});
     //Send otp verification request
     final response = await http.post(uri, headers: headers, body: requestBody);
     if (response.statusCode == 200) {
@@ -204,23 +204,20 @@ Future<ApiResponse> loginWithPhoneNumber(String phoneNumber) async {
 
       //Getting the response data
       String token = json.decode(response.body)["access_token"];
-      String registrationStatus =
-          json.decode(response.body)["registration_status"];
-      String emailAddress = json.decode(response.body)["email"];
-      bool isNewUser = json.decode(response.body)["is_new"];
-      String uuid = json.decode(response.body)["uuid"];
+      String username = json.decode(response.body)["username"];
+      // String uuid = json.decode(response.body)["uuid"];
 
       //Saving the data to shared preferences
       await prefs.setBool("isLoggedIn", true);
       await prefs.setString("access_token", token);
-      await prefs.setString("registration_status", registrationStatus);
-      await prefs.setString("phoneNumber", phoneNumber);
-      await prefs.setString("email", emailAddress);
-      await prefs.setBool("inNewUser", isNewUser);
-      await prefs.setString("uuid", uuid);
-      if (!isNewUser) {
-        await getUserProfile(); //get user profile info
-      }
+      await prefs.setString("username", username);
+      await prefs.setString("password", password);
+      // await prefs.setString("email", emailAddress);
+      // await prefs.setBool("inNewUser", isNewUser);
+      // await prefs.setString("uuid", uuid);
+      // if (!isNewUser) {
+      //   await getUserProfile(); //get user profile info
+      // }
       return ApiResponse(status: true, message: "Authentication successful");
     } else {
       return ApiResponse(status: false, message: response.body.toString());
@@ -231,35 +228,33 @@ Future<ApiResponse> loginWithPhoneNumber(String phoneNumber) async {
   }
 }
 
-Future<ApiResponse> updateUserProfile(
-    String firstName, String lastName, String emailAddress) async {
+Future<ApiResponse> registerUser(
+    String username, String password, String passconf, String role) async {
   try {
-    //get Access token
-    final prefs = await SharedPreferences.getInstance();
-    String token = prefs.getString("access_token").toString();
-    String uuid = prefs.getString("uuid").toString();
-
-    Map<String, String> headers = {
-      'Content-type': 'application/json',
-      'Accept': 'application/json',
-      'Authorization': "Token $token"
-    };
-
-    var uri = Uri.parse("https://dev-accounts.bukkhl.work/v1/user/$uuid");
+    var uri = Uri.parse(Constants.Constants.DEV_REGISTER);
     var requestBody = jsonEncode({
-      "first_name": firstName,
-      "last_name": lastName,
-      "email": emailAddress
+      "username": username,
+      "password": password,
+      "passconf": passconf,
+      "role": role,
     });
-    //Send otp verification request
-    final response = await http.put(uri, headers: headers, body: requestBody);
-    if (response.statusCode == 200) {
+    //Send register request
+    final response = await http.post(uri, headers: headers, body: requestBody);
+    if (response.statusCode == 201) {
       final prefs = await SharedPreferences.getInstance();
-      await prefs.setString("email", emailAddress);
-      await prefs.setString("firstName", firstName);
-      await prefs.setString("lastName", lastName);
 
-      return ApiResponse(status: true, message: "Profile updates successfully");
+      //Getting the response data
+      // String token = json.decode(response.body)["access_token"];
+      String uuid = json.decode(response.body)["uuid"];
+      String username = json.decode(response.body)["username"];
+      String role = json.decode(response.body)["role"];
+
+      //Saving the data to shared preferences
+      await prefs.setString("username", username);
+      await prefs.setString("role", role);
+      await prefs.setString("uuid", uuid);
+
+      return ApiResponse(status: true, message: "Registration successful");
     } else {
       return ApiResponse(status: false, message: response.body.toString());
     }
@@ -295,19 +290,17 @@ Future<bool> getUserProfile() async {
       'Authorization': "Token $token"
     };
 
-    var uri = Uri.parse("https://dev-accounts.bukkhl.work/v1/user/$uuid");
+    var uri = Uri.parse(Constants.Constants.DEV_USER_URL);
 
     final response = await http.get(uri, headers: headers);
     if (response.statusCode == 200) {
       //Getting the response data
-      String firstName = json.decode(response.body)["first_name"];
-      String lastName = json.decode(response.body)["last_name"];
-      String emailAddress = json.decode(response.body)["emails"];
+      String username = json.decode(response.body)["user_name"];
+      String role = json.decode(response.body)["role"];
 
       final prefs = await SharedPreferences.getInstance();
-      await prefs.setString("firstName", firstName);
-      await prefs.setString("lastName", lastName);
-      await prefs.setString("email", emailAddress);
+      await prefs.setString("username", username);
+      await prefs.setString("role", role);
       return true;
     } else {
       return false;

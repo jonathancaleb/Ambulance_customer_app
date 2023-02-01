@@ -1,4 +1,4 @@
-import 'package:ambulance_app/src/services/bukk_exporter.dart';
+import 'package:ambulance_app/src/services/exporter.dart';
 
 class NavController extends GetxController {
   var stepProgress = 1.obs;

@@ -37,8 +37,8 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: const Icon(Icons.logout_outlined),
             color: Colors.black,
             onPressed: () async {
-              final SharedPreferences? prefs = await _prefs;
-              prefs?.clear();
+              final SharedPreferences prefs = await _prefs;
+              prefs.clear();
               Get.offAll(const LogIn());
             },
           ),

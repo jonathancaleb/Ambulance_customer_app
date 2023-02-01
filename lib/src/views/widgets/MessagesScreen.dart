@@ -29,11 +29,11 @@ class _MessageScreenState extends State<MessageScreen> {
             title: const Padding(
               padding: EdgeInsets.all(10.0),
               child: Image(
-                image: Svg('assets/bukk_logo_large.svg'),
+                image: Svg('assets/logo.png'),
               ),
             ),
             bottom: PreferredSize(
-              preferredSize:const Size(double.infinity, 70),
+              preferredSize: const Size(double.infinity, 70),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

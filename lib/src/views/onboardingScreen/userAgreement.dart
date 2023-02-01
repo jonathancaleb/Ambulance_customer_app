@@ -20,7 +20,7 @@ class _UserAgreementScreenState extends State<UserAgreementScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        title: Image.asset('assets/bukk_logo_1.png', fit: BoxFit.contain),
+        title: Image.asset('assets/logo.png', fit: BoxFit.contain),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
