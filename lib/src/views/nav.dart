@@ -50,8 +50,8 @@ class _NavState extends State<Nav> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.message),
-            label: 'Messages',
+            icon: Icon(Icons.car_crash_outlined),
+            label: 'Ambulance',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),

@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../../../controllers/schedule_controller.dart';
 
 class DateTimePicker extends StatefulWidget {
-  DateTimePicker({Key? key}) : super(key: key);
+  const DateTimePicker({Key? key}) : super(key: key);
 
   @override
   State<DateTimePicker> createState() => _DateTimePickerState();

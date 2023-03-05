@@ -2,16 +2,14 @@ import 'package:ambulance_app/src/constants/image_strings.dart';
 import 'package:ambulance_app/src/constants/sizes.dart';
 import 'package:ambulance_app/src/constants/text_string.dart';
 import 'package:ambulance_app/src/controllers/login_controller.dart';
-import 'package:ambulance_app/src/views/authentication/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:progress_dialog_null_safe/progress_dialog_null_safe.dart';
 
 import '../../constants/app_colors.dart';
-import '../../models/ApiResponse.dart';
-import '../../services/authService.dart';
+import '../../constants/dimensions.dart';
+import '../../widgets/big_text.dart';
 import '../../widgets/container_widget.dart';
-import '../DashboardScreen.dart';
 import 'signup_screen.dart';
 
 class LogIn extends StatefulWidget {
@@ -28,9 +26,6 @@ class _LogInState extends State<LogIn> {
     //Screen sizes
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-
-    final ProgressDialog progressDialog = ProgressDialog(context,
-        type: ProgressDialogType.normal, isDismissible: false, showLogs: true);
     return SafeArea(
       child: Scaffold(
         body: SizedBox(
@@ -45,12 +40,39 @@ class _LogInState extends State<LogIn> {
                   //section 1
                   const Image(
                     image: AssetImage(aWelcomeScreenImage),
-                    height: 20,
+                    height: 150,
                   ),
                   Text(aloginTitle,
                       style: Theme.of(context).textTheme.headline1),
                   Text(aloginDescription,
                       style: Theme.of(context).textTheme.bodyText1),
+
+                  //section 0.5
+
+                  // Row(
+                  //   children: [
+                  //     const Expanded(
+                  //         child: Padding(
+                  //       padding: EdgeInsets.all(8.0),
+                  //       child: Divider(
+                  //         thickness: 2,
+                  //         color: AppColors.black,
+                  //       ),
+                  //     )),
+                  //     BigText(
+                  //       text: 'SOS-AMBULANCE',
+                  //       size: Dimensions.font20 * 1.8,
+                  //     ),
+                  //     const Expanded(
+                  //         child: Padding(
+                  //       padding: EdgeInsets.all(8.0),
+                  //       child: Divider(
+                  //         thickness: 2,
+                  //         color: AppColors.black,
+                  //       ),
+                  //     )),
+                  //   ],
+                  // ),
 
                   //section 2
                   Form(
@@ -156,9 +178,7 @@ class _LogInState extends State<LogIn> {
                                 ),
                                 onPressed: () async {
                                   debugPrint("Logged!");
-                                  progressDialog.show();
                                   logInController.logInUser();
-                                  progressDialog.hide();
                                 },
                                 child: Text(logIn.toUpperCase()),
                               )),

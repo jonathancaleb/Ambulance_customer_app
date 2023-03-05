@@ -12,8 +12,7 @@ import '../../services/exporter.dart';
 import 'Widgets/FirstBookingScreen.dart';
 import 'Widgets/StepperProgress.dart';
 
-import 'Widgets/trip_completion_view.dart';
-import 'driver_matched_screen.dart';
+// import 'driver_matched_screen.dart';
 
 class AmbulanceScreen extends StatefulWidget {
   const AmbulanceScreen({Key? key}) : super(key: key);
@@ -103,8 +102,8 @@ class _AmbulanceScreenState extends State<AmbulanceScreen>
                         PlaceBookingScreen(
                           controller: controller,
                         ),
-                        const DriverMatchScreen(),
-                        const TripCompletionView(),
+                        // const DriverMatchScreen(),
+
                         //OngoingTripScreen()
                       ],
                     ),

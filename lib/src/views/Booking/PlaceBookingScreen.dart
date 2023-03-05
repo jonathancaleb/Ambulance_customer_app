@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:get/get.dart';
@@ -6,15 +5,9 @@ import 'package:intl/intl.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 import '../../controllers/BookingController.dart';
-import '../../controllers/VehicleController.dart';
 import '../../controllers/map_controller.dart';
 import '../../controllers/nav_controller.dart';
-import '../../models/VehicleSubCategory.dart';
-import '../../services/BookingService.dart';
-import '../../services/vehicleService.dart';
 import '../places/places_search_view.dart';
-import 'Widgets/VehicleInfoDialogView.dart';
-import 'Widgets/booking_loading_dialog.dart';
 import 'Widgets/date_time_picker.dart';
 
 class PlaceBookingScreen extends StatefulWidget {
@@ -30,7 +23,6 @@ class PlaceBookingScreenState extends State<PlaceBookingScreen>
     with SingleTickerProviderStateMixin {
   final bookingController = Get.put(BookingController());
   final navController = Get.put(NavController());
-  final vehiclController = Get.put(VehicleController());
   var currentDateTime = DateTime.now();
   //Vehicle size card index
   int vehicleCardIndex = -1;
@@ -144,156 +136,6 @@ class PlaceBookingScreenState extends State<PlaceBookingScreen>
                     fontWeight: FontWeight.bold,
                     fontFamily: "Poppins",
                   ),
-                ),
-              ),
-            ),
-
-            //Vehicle sub category list
-            GetBuilder<BookingController>(
-              builder: (bookingController) => SizedBox(
-                width: screenWidth,
-                // height: screenHeight * 0.3,
-                child: FutureBuilder<List<VehiclSubCategory>>(
-                  future: getVehicleSubCategory(
-                      bookingController.vehicleCategoryId.toString()),
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      return Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: getVehicleCapacities(snapshot.data!, size),
-                      );
-
-                      return Scrollbar(
-                        trackVisibility: true,
-                        child: ListView.builder(
-                            scrollDirection: Axis.vertical,
-                            itemCount: snapshot.data!.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              return Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 10.0, left: 10.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      vehicleCardIndex = index;
-                                      //add selected sub category object ton vehicle controller
-                                      vehiclController
-                                          .updateSelectedVehicleSubCategory(
-                                              snapshot.data![index]);
-                                    });
-                                  },
-                                  child: Card(
-                                    elevation: 8,
-                                    color: vehicleCardIndex.isEqual(index)
-                                        ? const Color(0xff042B52)
-                                        : Colors.white,
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Column(
-                                            children: [
-                                              SizedBox(
-                                                  height: screenHeight * 0.09,
-                                                  width: screenWidth * 0.2,
-                                                  child: CachedNetworkImage(
-                                                    imageUrl: snapshot
-                                                        .data![index].image,
-                                                    placeholder: (context,
-                                                            url) =>
-                                                        const CircularProgressIndicator(),
-                                                    errorWidget: (context, url,
-                                                            error) =>
-                                                        const Icon(Icons.error),
-                                                  )),
-                                              Text(
-                                                snapshot.data![index].name,
-                                                style: TextStyle(
-                                                    color: vehicleCardIndex
-                                                            .isEqual(index)
-                                                        ? Colors.white
-                                                        : const Color(
-                                                            0xff042B52),
-                                                    fontWeight: FontWeight.bold,
-                                                    fontFamily: "Poppins"),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        const Spacer(flex: 2),
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              Text(
-                                                "R925",
-                                                style: TextStyle(
-                                                    color: vehicleCardIndex
-                                                            .isEqual(index)
-                                                        ? Colors.white
-                                                        : Colors.grey[800],
-                                                    fontSize: 14,
-                                                    decoration: TextDecoration
-                                                        .lineThrough,
-                                                    fontFamily: "Poppins"),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(5.0),
-                                                child: Text(
-                                                  "R" +
-                                                      snapshot.data![index].fee
-                                                          .toString(),
-                                                  style: TextStyle(
-                                                    color: vehicleCardIndex
-                                                            .isEqual(index)
-                                                        ? const Color(
-                                                            0xfff1ca2d)
-                                                        : const Color(
-                                                            0xff042B52),
-                                                    fontSize: 18,
-                                                  ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(5.0),
-                                                child: Text(
-                                                  "Arrival Time: " +
-                                                      snapshot.data![index]
-                                                          .arrival_time,
-                                                  style: TextStyle(
-                                                    color: vehicleCardIndex
-                                                            .isEqual(index)
-                                                        ? Colors.white
-                                                        : Colors.grey[800],
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              );
-                            }),
-                      );
-                    } else {
-                      //return Text("${snapshot.error}");
-                      return const Center(
-                          child: CircularProgressIndicator(
-                        color: Color(0xff042B52),
-                      ));
-                      //TODO: add shimmer container
-
-                    }
-                  },
                 ),
               ),
             ),
@@ -440,40 +282,7 @@ class PlaceBookingScreenState extends State<PlaceBookingScreen>
                               side: const BorderSide(
                                 color: Color(0xff042B52),
                               )),
-                          onPressed: () {
-                            //Check if the user has selected the a vehicle sub-category
-                            if (selectedCategory == null) {
-                              ScaffoldMessenger.of(context)
-                                  .showSnackBar(const SnackBar(
-                                content: Text(
-                                    "Please Select a vehicle sub-category to proceed"),
-                                duration: Duration(milliseconds: 1000),
-                              ));
-                            } else {
-                              showDialog(
-                                  barrierDismissible: false,
-                                  context: context,
-                                  builder: (context) {
-                                    return const BookingDialog();
-                                  });
-                              // Fire Send booking request network call.
-                              submitBookingRequest().then((value) {
-                                if (value) {
-                                  setState(() {
-                                    Navigator.pop(context);
-                                    navController.addToBookingPosition();
-                                  });
-                                } else {
-                                  //Dismiss keyboard
-                                  FocusScope.of(context).unfocus();
-                                  Navigator.pop(context);
-                                  //show failed booking dialog
-                                  showMatchingFailedDialog(
-                                      context, screenHeight, screenWidth);
-                                }
-                              });
-                            }
-                          },
+                          onPressed: () {},
                           child: const Text(
                             "Let's Move!",
                             style: TextStyle(
@@ -596,176 +405,6 @@ class PlaceBookingScreenState extends State<PlaceBookingScreen>
             ),
           );
         });
-  }
-
-  VehiclSubCategory? selectedCategory;
-  List<Widget> getVehicleCapacities(List<VehiclSubCategory> list, Size size) {
-    return list.map((category) {
-      return Padding(
-        padding: const EdgeInsets.only(right: 10.0, left: 10.0, bottom: 5.0),
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5.0),
-            color: selectedCategory == category
-                ? const Color(0xff042B52)
-                : Colors.white,
-          ),
-          child: Material(
-            elevation: 1,
-            borderRadius: BorderRadius.circular(5.0),
-            color: selectedCategory == category
-                ? const Color(0xff042B52)
-                : Colors.white,
-            child: InkWell(
-              highlightColor: Colors.transparent,
-              borderRadius: BorderRadius.circular(5.0),
-              onTap: () {
-                setState(() {
-                  selectedCategory = category;
-                  // vehicleCardIndex = index;
-                  //add selected sub category object ton vehicle controller
-                  vehiclController.updateSelectedVehicleSubCategory(category);
-                });
-              },
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            _buildInfo(category),
-                            SizedBox(
-                              height: 55,
-                              // width: size.width * 0.2,
-                              child: CachedNetworkImage(
-                                imageUrl: category.image,
-                                placeholder: (context, url) => const Center(
-                                  child: CircularProgressIndicator(
-                                    color: Color(0xfff1ca2d),
-                                  ),
-                                ),
-                                errorWidget: (context, url, error) =>
-                                    const Icon(Icons.error),
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 5.0,
-                        ),
-                        Text(
-                          category.name,
-                          style: TextStyle(
-                            color: selectedCategory == category
-                                ? Colors.white
-                                : const Color(0xff042B52),
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const Spacer(flex: 2),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text(
-                          "R925",
-                          style: TextStyle(
-                            color: selectedCategory == category
-                                ? Colors.white
-                                : Colors.grey[800],
-                            fontSize: 13,
-                            decoration: TextDecoration.lineThrough,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Text(
-                            "R" + category.fee.toString(),
-                            style: TextStyle(
-                              color: selectedCategory == category
-                                  ? const Color(0xfff1ca2d)
-                                  : const Color(0xff042B52),
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Text(
-                            "Arrival: " + category.arrival_time,
-                            style: TextStyle(
-                              color: selectedCategory == category
-                                  ? Colors.white
-                                  : Colors.grey[800],
-                              fontSize: 13.0,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      );
-    }).toList();
-  }
-
-  Widget _buildInfo(VehiclSubCategory category) {
-    return SizedBox(
-      height: 30,
-      width: 30,
-      child: InkWell(
-        radius: 20,
-        onTap: () {
-          //Open vehicle information dialog
-          showDialog(
-            context: context,
-            builder: (context) => VehicleInfoDialogView(
-              category: category,
-            ),
-          );
-        },
-        child: const Card(
-          color: Color(0xfff1ca2d),
-          shape: RoundedRectangleBorder(
-            side: BorderSide(color: Color(0xfff1ca2d), width: 2),
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(3),
-              topRight: Radius.circular(3),
-              bottomLeft: Radius.circular(3),
-              bottomRight: Radius.circular(3),
-            ),
-          ),
-          child: Center(
-            child: Text(
-              "i",
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                // fontStyle: FontStyle.italic,
-                color: Color(0xff042B52),
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
   }
 
   InkWell _buildPickupField(BuildContext context) {

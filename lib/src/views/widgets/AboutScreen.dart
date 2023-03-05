@@ -100,8 +100,8 @@ class _AboutScreenState extends State<AboutScreen> {
                                 body: SingleChildScrollView(
                                   child: Column(
                                     children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(10.0),
+                                      const Padding(
+                                        padding: EdgeInsets.all(10.0),
                                         child: Text('Support & Bug Report',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,

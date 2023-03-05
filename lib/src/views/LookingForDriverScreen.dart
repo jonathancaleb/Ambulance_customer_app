@@ -9,7 +9,7 @@ class LookingForDRiverScreen extends StatefulWidget {
   const LookingForDRiverScreen({Key? key}) : super(key: key);
 
   @override
-  _LookingForDRiverScreenState createState() => _LookingForDRiverScreenState();
+  State<LookingForDRiverScreen> createState() => _LookingForDRiverScreenState();
 }
 
 class _LookingForDRiverScreenState extends State<LookingForDRiverScreen> {
@@ -61,7 +61,7 @@ class _LookingForDRiverScreenState extends State<LookingForDRiverScreen> {
                       padding: EdgeInsets.all(10.0),
                       child: SizedBox(
                         child: Image(
-                          image: AssetImage('assets/bukk_logo_1.png'),
+                          image: AssetImage('assets/logo.png'),
                         ),
                       ),
                     ),

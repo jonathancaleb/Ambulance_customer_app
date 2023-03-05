@@ -1,3 +1,4 @@
+import 'package:ambulance_app/src/views/authentication/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -125,7 +126,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const Dashboard()));
+                                builder: (context) => const LogIn()));
                       },
                       child: const Text(
                         'Get Started',
@@ -150,10 +151,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   onPressed: () {
                     // pageController.jumpToPage(2);
                     //Go to Dashboard Screen
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Dashboard()));
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => const LogIn()));
                   },
                   child: const Text(
                     "Skip",

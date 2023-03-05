@@ -2,6 +2,7 @@ import 'package:ambulance_app/src/constants/app_colors.dart';
 import 'package:ambulance_app/src/constants/text_string.dart';
 import 'package:ambulance_app/src/views/Extra%20screens/article_screen.dart';
 import 'package:ambulance_app/src/views/Extra%20screens/chat_screen.dart';
+import 'package:ambulance_app/src/views/Extra%20screens/hospitals_screen.dart';
 import 'package:ambulance_app/src/views/Extra%20screens/report_incident_screen.dart';
 import 'package:ambulance_app/src/views/maps/find_hospital.dart';
 import 'package:ambulance_app/src/views/maps/maps.dart';
@@ -262,8 +263,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         SizedBox(
                           width: double.infinity,
                           child: OutlinedButton(
-                              onPressed: () {},
-                              // => Get.to(() => const NearbyHospitalsPage()),
+                              onPressed: () => Get.to(() => HospitalScreen()),
                               style: OutlinedButton.styleFrom(
                                 shape: const StadiumBorder(),
                                 foregroundColor: aSecondaryColor,

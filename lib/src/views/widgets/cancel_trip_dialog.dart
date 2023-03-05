@@ -15,11 +15,7 @@ class CancelTripDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        padding: const EdgeInsets.fromLTRB(
-            40,
-           20,
-            40,
-           20),
+        padding: const EdgeInsets.fromLTRB(40, 20, 40, 20),
         margin: const EdgeInsets.all(20),
         decoration: BoxDecoration(
             color: Colors.white, borderRadius: BorderRadius.circular(10)),
@@ -28,7 +24,7 @@ class CancelTripDialog extends StatelessWidget {
             Column(
               children: [
                 Image.asset(
-                  'assets/bukk_logo_1.png',
+                  'assets/logo.png',
                   height: 22.0,
                 ),
                 const SizedBox(
@@ -63,26 +59,27 @@ class CancelTripDialog extends StatelessWidget {
                         cancelTrip(true);
                       },
                     ),
-                    const SizedBox(width: 20,),
+                    const SizedBox(
+                      width: 20,
+                    ),
                     AppButton(
-                  height: 40,
-                  color: const Color(0xff042B52),
-                  width: MediaQuery.of(context).size.width * 0.30,
-                  child: Text(
-                    'No',
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                          color: Colors.white,
-                        ),
-                  ),
-                  onTap: () async {
-                    Navigator.of(context).pop();
-                    cancelTrip(false);
-                  },
-                ),
+                      height: 40,
+                      color: const Color(0xff042B52),
+                      width: MediaQuery.of(context).size.width * 0.30,
+                      child: Text(
+                        'No',
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                              color: Colors.white,
+                            ),
+                      ),
+                      onTap: () async {
+                        Navigator.of(context).pop();
+                        cancelTrip(false);
+                      },
+                    ),
                   ],
                 ),
-                
               ],
             )
           ],

@@ -16,22 +16,17 @@ class _HistoryScreenState extends State<HistoryScreen> {
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.white,
-            title: const Padding(
-              padding: EdgeInsets.all(10.0),
-              child: Image(
-                image: Svg('assets/bukk_logo_large.svg'),
-              ),
-            ),
+            title: Text("Find providers and Ambulances around you!"),
             bottom: TabBar(
               indicatorColor: const Color(0xffF1CA2D),
               tabs: [
                 Tab(
-                    icon: Text("Trip History",
+                    icon: Text("Ambulance",
                         style: TextStyle(
                             color: Colors.black.withOpacity(1.0),
                             fontWeight: FontWeight.bold))),
                 Tab(
-                    icon: Text("Bookings",
+                    icon: Text("Providers",
                         style: TextStyle(
                             color: Colors.black.withOpacity(1.0),
                             fontWeight: FontWeight.bold))),

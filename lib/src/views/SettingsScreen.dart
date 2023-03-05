@@ -22,7 +22,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             title: const Padding(
               padding: EdgeInsets.all(10.0),
               child: Image(
-                image: Svg('assets/bukk_logo_large.svg'),
+                image: Svg('assets/logo.png'),
               ),
             ),
             bottom: TabBar(

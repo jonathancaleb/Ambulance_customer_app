@@ -8,6 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:progress_dialog_null_safe/progress_dialog_null_safe.dart';
 
+import '../../constants/dimensions.dart';
+import '../../widgets/big_text.dart';
+
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
 
@@ -34,9 +37,6 @@ class _SignUpState extends State<SignUp> {
     //Screen sizes
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-
-    final ProgressDialog progressDialog = ProgressDialog(context,
-        type: ProgressDialogType.normal, isDismissible: false, showLogs: true);
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -49,6 +49,30 @@ class _SignUpState extends State<SignUp> {
               child: Column(children: [
                 const FormHeaderWidget(
                     title: aSignupTitle, subTitle: aSignupDescription),
+                // Row(
+                //   children: [
+                //     const Expanded(
+                //         child: Padding(
+                //       padding: EdgeInsets.all(8.0),
+                //       child: Divider(
+                //         thickness: 2,
+                //         color: AppColors.black,
+                //       ),
+                //     )),
+                //     BigText(
+                //       text: 'SOS-AMBULANCE',
+                //       size: Dimensions.font20 * 1.8,
+                //     ),
+                //     const Expanded(
+                //         child: Padding(
+                //       padding: EdgeInsets.all(8.0),
+                //       child: Divider(
+                //         thickness: 2,
+                //         color: AppColors.black,
+                //       ),
+                //     )),
+                //   ],
+                // ),
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   child: Form(
@@ -160,9 +184,7 @@ class _SignUpState extends State<SignUp> {
                                   vertical: aButtonHeight),
                             ),
                             onPressed: () async {
-                              progressDialog.show();
-                              await registrationController.registerUser();
-                              progressDialog.hide();
+                              registrationController.registerUser();
                             },
                             child: Text(signUp.toUpperCase()),
                           )),

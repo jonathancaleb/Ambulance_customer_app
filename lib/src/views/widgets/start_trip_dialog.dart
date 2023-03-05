@@ -23,7 +23,7 @@ class StartTripDialog extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Image.asset(
-              'assets/bukk_logo_1.png',
+              'assets/logo.png',
               height: 22.0,
             ),
             const SizedBox(

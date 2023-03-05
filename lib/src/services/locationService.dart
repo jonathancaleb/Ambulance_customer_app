@@ -30,9 +30,9 @@ class LocationService {
     String latLng = "$lat,$lng";
 
     try {
-      String apiKey = "AIzaSyCBx7lRHvmRJEeMbCIJWgjsUArU24Awq_k";
-      final Uri uri = Uri.parse(
-          Constants.GET_ADDRESS_FROM_LAT_LNG + latLng + "&key=" + apiKey);
+      String apiKey = "AIzaSyDD8LeCBjQI-2GLDjYcbT_HH0p3XZS_iV4";
+      final Uri uri =
+          Uri.parse("${Constants.GET_ADDRESS_FROM_LAT_LNG}$latLng&key=$apiKey");
 
       final response = await http.get(uri);
       if (response.statusCode == 200) {

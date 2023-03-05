@@ -22,7 +22,7 @@ class LocationDialogView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Image.asset(
-                  'assets/location.png',
+                  'assets/map.png',
                   // height: 22.0,
                 ),
                 // const SizedBox(height: 120),
@@ -39,7 +39,7 @@ class LocationDialogView extends StatelessWidget {
                 ),
 
                 Text(
-                  'Please enable your GPS to continue using BUKK',
+                  'Please enable your location to continue using this app',
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         fontWeight: FontWeight.w400,
@@ -60,7 +60,7 @@ class LocationDialogView extends StatelessWidget {
                         side: const BorderSide(color: Color(0xff042B52))),
                     onPressed: onTap,
                     child: const Text(
-                      "Enable GPS",
+                      "Enable Location",
                       style: TextStyle(fontSize: 16, color: Color(0xffF1CA2D)),
                     ),
                   ),

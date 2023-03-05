@@ -27,7 +27,7 @@ class PlaceDetail {
 
   static Future<PlaceDetail?> searchAddressDetail(
       String placeId, String address) async {
-    String key = "AIzaSyCBx7lRHvmRJEeMbCIJWgjsUArU24Awq_k";
+    String key = "AIzaSyDD8LeCBjQI-2GLDjYcbT_HH0p3XZS_iV4";
     String url =
         'https://maps.googleapis.com/maps/api/place/details/json?fields=formatted_address,name,geometry&place_id=$placeId&key=$key';
 
@@ -66,7 +66,7 @@ class PlacesSearchResult {
   static Future<List<PlacesSearchResult>> searchLocation(
       var text, String country) async {
     try {
-      String kGoogleApiKey = 'AIzaSyCBx7lRHvmRJEeMbCIJWgjsUArU24Awq_k';
+      String kGoogleApiKey = 'AIzaSyDD8LeCBjQI-2GLDjYcbT_HH0p3XZS_iV4';
       String baseURL =
           'https://maps.googleapis.com/maps/api/place/autocomplete/json';
 
@@ -109,7 +109,7 @@ class _PlacesSearchViewState extends State<PlacesSearchView> {
   final _placesController =
       StreamController<List<PlacesSearchResult>>.broadcast();
 
-  String countryCode = 'ZA';
+  String countryCode = 'UG';
 
   @override
   void initState() {
@@ -280,7 +280,7 @@ class _PlacesSearchViewState extends State<PlacesSearchView> {
     var addresses =
         await placemarkFromCoordinates(position.latitude, position.longitude);
 
-    var code = addresses.first.isoCountryCode ?? 'ZA';
+    var code = addresses.first.isoCountryCode ?? 'UG';
     setState(() {
       countryCode = code;
     });

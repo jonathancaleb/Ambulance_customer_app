@@ -7,7 +7,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../constants/constants.dart' as Constants;
 import '../models/ApiResponse.dart';
-import '../sockets/connection.dart';
 
 //Header for the auth requests
 const Map<String, String> headers = {
@@ -34,8 +33,6 @@ Future<bool> verifyOtp(String otp) async {
     final response = await http.post(uri, headers: headers, body: requestBody);
     if (response.statusCode == 200) {
       prefs.setString("registration_status", "complete");
-      SocketManager socketManager = SocketManager();
-      socketManager.initSocketConnection();
       return true;
     } else {
       return false;

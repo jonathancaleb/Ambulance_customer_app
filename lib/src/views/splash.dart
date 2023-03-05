@@ -1,13 +1,14 @@
 import 'dart:io';
 
 import 'package:ambulance_app/src/views/authentication/signup_screen.dart';
+import 'package:ambulance_app/src/views/onboardingScreen/WelcomeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../services/authService.dart';
-import '../sockets/connection.dart';
 import '../utils/utils.dart';
 import 'DashboardScreen.dart';
+import 'authentication/login_screen.dart';
 
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
@@ -17,7 +18,6 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
-  SocketManager socketManager = SocketManager();
   @override
   void initState() {
     super.initState();
@@ -72,7 +72,7 @@ class _SplashState extends State<Splash> {
     if (!isLoggedIn) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const SignUp()),
+        MaterialPageRoute(builder: (context) => const WelcomeScreen()),
       );
     } else {
       checkRegistrationStatus().then((value) => {
@@ -80,12 +80,11 @@ class _SplashState extends State<Splash> {
               {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const SignUp()),
+                  MaterialPageRoute(builder: (context) => const LogIn()),
                 )
               }
             else if (value == "complete")
               {
-                socketManager.initSocketConnection(),
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => const Dashboard()),

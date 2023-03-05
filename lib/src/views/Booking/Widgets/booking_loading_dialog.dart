@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:get/get.dart';
 
-import '../../../controllers/VehicleController.dart';
 import '../../../controllers/map_controller.dart';
 import '../../widgets/timer_widget.dart';
 
@@ -15,7 +14,6 @@ class BookingDialog extends StatefulWidget {
 }
 
 class _BookingDialogState extends State<BookingDialog> {
-  final vehicleController = Get.put(VehicleController());
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -246,99 +244,6 @@ class _BookingDialogState extends State<BookingDialog> {
                                 ),
                               ),
                             ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  //Vehicle Subcaetgory card
-                  SizedBox(
-                    height: screenHeight * 0.15,
-                    width: screenWidth * 0.9,
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 5, bottom: 5),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: const Color(0xff042B52),
-                        ),
-                        child: GetBuilder<VehicleController>(
-                          builder: (vehicleControler) => Padding(
-                            padding: const EdgeInsets.only(
-                                left: 20, right: 20, top: 2, bottom: 2),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    children: [
-                                      SizedBox(
-                                          height: screenHeight * 0.08,
-                                          width: screenWidth * 0.2,
-                                          child: CachedNetworkImage(
-                                            imageUrl: vehicleController
-                                                .vehicleSubCategory.image,
-                                            placeholder: (context, url) =>
-                                                const CircularProgressIndicator(),
-                                            errorWidget:
-                                                (context, url, error) =>
-                                                    const Icon(Icons.error),
-                                          )),
-                                      Text(
-                                        vehicleController
-                                            .vehicleSubCategory.name,
-                                        style: const TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
-                                            fontFamily: "Regular"),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                const Spacer(flex: 2),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    const Text(
-                                      "R925",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 14,
-                                          decoration:
-                                              TextDecoration.lineThrough,
-                                          fontFamily: "Regular"),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 5.0),
-                                      child: Text(
-                                        "R${vehicleController.vehicleSubCategory.fee}",
-                                        style: const TextStyle(
-                                          color: Color(0xfff1ca2d),
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Text(
-                                        "Arrival: " +
-                                            vehicleController.vehicleSubCategory
-                                                .arrival_time,
-                                        style: const TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 14,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
                           ),
                         ),
                       ),

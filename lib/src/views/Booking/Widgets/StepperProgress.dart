@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
-import '../../../controllers/DriverController.dart';
+import '../../../controllers/Driver_controller.dart';
 import '../../../controllers/nav_controller.dart';
 
 class StepProgress extends StatefulWidget {
@@ -48,20 +48,20 @@ class _StepProgressState extends State<StepProgress> {
                       ),
                     ),
                   ),
-                  Center(
-                    child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Obx(
-                          () => Text(
-                            driverController.bookingStage.toString(),
-                            style: const TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xff042B52),
-                            ),
-                          ),
-                        )),
-                  ),
+                  // Center(
+                  //   child: Padding(
+                  //       padding: const EdgeInsets.all(8.0),
+                  //       child: Obx(
+                  //         () => Text(
+                  //           driverController.bookingStage.toString(),
+                  //           style: const TextStyle(
+                  //             fontSize: 14,
+                  //             fontWeight: FontWeight.bold,
+                  //             color: Color(0xff042B52),
+                  //           ),
+                  //         ),
+                  //       )),
+                  // ),
                 ],
               ),
             ),

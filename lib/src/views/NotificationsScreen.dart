@@ -5,7 +5,7 @@ class NotificationsScreen extends StatefulWidget {
   const NotificationsScreen({Key? key}) : super(key: key);
 
   @override
-  _NotificationsScreenState createState() => _NotificationsScreenState();
+  State<NotificationsScreen> createState() => _NotificationsScreenState();
 }
 
 class _NotificationsScreenState extends State<NotificationsScreen> {
@@ -19,7 +19,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
             title: const Padding(
               padding: EdgeInsets.all(10.0),
               child: Image(
-                image: Svg('assets/bukk_logo_large.svg'),
+                image: Svg('assets/logo.png'),
               ),
             ),
             bottom: TabBar(
