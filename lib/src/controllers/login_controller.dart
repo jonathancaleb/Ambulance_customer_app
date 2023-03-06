@@ -35,6 +35,7 @@ class LogInController extends GetxController {
         // if (json['code'] == 201) {
         prefs.setString('token', jsonResponse.token);
         prefs.setString('userId', jsonResponse.user.id);
+        prefs.setString('username', jsonResponse.user.username);
         usernameController.clear();
         passwordController.clear();
         Get.off(() => const Dashboard());

@@ -16,6 +16,7 @@ submitBookingRequest() async {
     final prefs = await SharedPreferences.getInstance();
     String token = prefs.getString("token").toString();
     String userId = prefs.getString("userId").toString();
+    String username = prefs.getString("username").toString();
 
     Map<String, String> headers = {
       'Content-type': 'application/json',
@@ -27,10 +28,9 @@ submitBookingRequest() async {
 
     //TODO: Edit the booking object to include all fields
     var requestBody = jsonEncode({
-      "pickup_location": {
+      "location": {
         "lat": getxMapController.getPickupLatitude(),
         "long": getxMapController.getPickupLongitude(),
-        "name": getxMapController.currentAddress,
       },
       // "delivery_location": {
       //   "name": getxMapController.destinationAddress,
@@ -38,6 +38,7 @@ submitBookingRequest() async {
       //   "long": getxMapController.getDestinationLongitude()
       // },
       "user": userId,
+      "username": username,
     });
     RequestResponse jsonResponse;
     final response = await http.post(uri, headers: headers, body: requestBody);
