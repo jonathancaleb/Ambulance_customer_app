@@ -36,7 +36,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
           body: const TabBarView(
             children: [
               Center(
-                child: Text("Trip History"),
+                child: Text("Trip "),
               ),
               Center(
                 child: Text("Bookings"),
