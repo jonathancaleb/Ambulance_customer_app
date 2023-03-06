@@ -7,10 +7,10 @@ import 'package:http/http.dart' as http;
 import 'package:geolocator/geolocator.dart';
 
 import '../constants/Constants.dart';
-import '../controllers/BookingController.dart';
+import '../controllers/RequestController.dart';
 
 class LocationService {
-  final bookingController = Get.put(BookingController());
+  final bookingController = Get.put(RequestController());
   Future<LatLng> getPosition() async {
     final Location location = Location();
     if (!await location.serviceEnabled()) {

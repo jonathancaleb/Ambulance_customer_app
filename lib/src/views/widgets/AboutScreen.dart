@@ -35,15 +35,15 @@ class _AboutScreenState extends State<AboutScreen> {
                   SizedBox(
                     height: 10,
                   ),
-                  SizedBox(
-                    height: 100,
-                    child: Image(
-                      image: Svg('assets/bukk_logo_large.svg'),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
+                  // SizedBox(
+                  //   height: 100,
+                  //   child: Image(
+                  //     image: Svg('assets/bukk_logo_large.svg'),
+                  //   ),
+                  // ),
+                  // SizedBox(
+                  //   height: 10,
+                  // ),
                   Text(
                     "Version 1.0",
                     textAlign: TextAlign.center,
@@ -92,10 +92,10 @@ class _AboutScreenState extends State<AboutScreen> {
                                     color:
                                         Colors.black, //change your color here
                                   ),
-                                  title: const Image(
-                                    image: Svg('assets/bukk_logo_large.svg'),
-                                    fit: BoxFit.contain,
-                                  ),
+                                  // title: const Image(
+                                  //   image: Svg('assets/bukk_logo_large.svg'),
+                                  //   fit: BoxFit.contain,
+                                  // ),
                                 ),
                                 body: SingleChildScrollView(
                                   child: Column(
@@ -272,10 +272,10 @@ class _AboutScreenState extends State<AboutScreen> {
                                     color:
                                         Colors.black, //change your color here
                                   ),
-                                  title: const Image(
-                                    image: Svg('assets/bukk_logo_large.svg'),
-                                    fit: BoxFit.contain,
-                                  ),
+                                  // title: const Image(
+                                  //   image: Svg('assets/bukk_logo_large.svg'),
+                                  //   fit: BoxFit.contain,
+                                  // ),
                                 ),
                                 body: const Center(
                                     child: CircularProgressIndicator(
@@ -330,7 +330,7 @@ class _AboutScreenState extends State<AboutScreen> {
                               ],
                             ),
                           ),
-                          Icon(
+                          const Icon(
                             Icons.arrow_right,
                             color: Color(0xfff1ca2d),
                             size: 40,
@@ -387,7 +387,7 @@ class _AboutScreenState extends State<AboutScreen> {
                               ],
                             ),
                           ),
-                          Icon(
+                          const Icon(
                             Icons.arrow_right,
                             color: Color(0xfff1ca2d),
                             size: 40,

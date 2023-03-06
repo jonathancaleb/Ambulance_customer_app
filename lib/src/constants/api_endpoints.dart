@@ -7,4 +7,6 @@ class ApiEndPoints {
 class _AuthEndPoints {
   final String register = 'auth/register';
   final String login = 'auth/login';
+  // ignore: non_constant_identifier_names
+  final String submit_ride_request = 'incidents/request_help';
 }

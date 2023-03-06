@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../controllers/BookingController.dart';
+import '../../../controllers/RequestController.dart';
 import '../../../controllers/map_controller.dart';
 import '../../../controllers/nav_controller.dart';
 import '../../places/places_search_view.dart';
@@ -15,7 +15,7 @@ class FirstBookingScreen extends StatefulWidget {
 
 class _FirstBookingScreenState extends State<FirstBookingScreen> {
   //Inject get controller into home widget
-  final bookingController = Get.put(BookingController());
+  final bookingController = Get.put(RequestController());
   final navController = Get.put(NavController());
 
   @override
@@ -55,8 +55,8 @@ class _FirstBookingScreenState extends State<FirstBookingScreen> {
                       backgroundColor: Colors.transparent,
                       builder: (BuildContext context) {
                         return PlacesSearchView(
-                          title: 'Delivery Location',
-                          placeholder: 'Search delivery location...',
+                          title: 'Destination Location',
+                          placeholder: 'Search Destination...',
                           countryCode: getxMapController.currentCountryCode,
                           onPlaceSelect: (detail) {
                             // getxMapController.updateDeliveryAddress(
@@ -123,7 +123,7 @@ class _FirstBookingScreenState extends State<FirstBookingScreen> {
                             height: 50,
                             child: Icon(
                               Icons.location_pin,
-                              color: Color(0xff042B52),
+                              color: Color(0xFFEF9A9A),
                             ),
                           ),
                           GetBuilder<MapController>(
@@ -157,7 +157,7 @@ class _FirstBookingScreenState extends State<FirstBookingScreen> {
                 height: screenHeight * 0.07,
                 width: screenWidth * 0.7,
                 child: MaterialButton(
-                  color: const Color(0xff042B52),
+                  color: const Color(0xFFEF9A9A),
                   disabledColor: Colors.grey,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),

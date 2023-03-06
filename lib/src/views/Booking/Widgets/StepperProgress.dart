@@ -44,7 +44,7 @@ class _StepProgressState extends State<StepProgress> {
                         currentStep: navController.stepProgress.toInt() < 1
                             ? 1
                             : navController.stepProgress.toInt(),
-                        selectedColor: const Color(0xffF1CA2D),
+                        selectedColor: const Color(0xFFEF9A9A),
                       ),
                     ),
                   ),

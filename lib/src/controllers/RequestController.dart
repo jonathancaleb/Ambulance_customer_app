@@ -2,7 +2,7 @@
 
 import 'package:get/get.dart';
 
-class BookingController extends GetxController {
+class RequestController extends GetxController {
   //Location data
   var pickUpLocationAddress = "Use my current Location";
   var deliveryLocationAddress = "Set your Delivery Location";

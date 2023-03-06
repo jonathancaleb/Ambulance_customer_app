@@ -17,8 +17,8 @@ class Constants {
   static const String GET_VEHICLE_CATEGORIES = "${BASE_URL}profile/v1/vehicles";
   static const String GET_VEHICLE_SUB_CATEGORY =
       "${BASE_URL}profile/v1/vehicles?categoryId=";
-  static const String SUBMIT_BOOKING_REQUEST =
-      "https://dev-dispatch.bukkhl.work/v1/booking-request";
+  // static const String SUBMIT_BOOKING_REQUEST =
+  //     "https://dev-dispatch.bukkhl.work/v1/booking-request";
 
   //Strings
   static const String USER_TYPE = "customer";
@@ -33,6 +33,7 @@ class Constants {
   static const String DEV_VERIFY_OTP = "${DEV_BASE_URL}reset-password/:token";
   static const String DEV_TOKEN = "${DEV_BASE_URL}token";
   static const String DEV_RESEND_EMAIL = "${DEV_BASE_URL}resend-email";
+  static const String DEV_REQUEST = "${DEV_BASE_URL}incidents/request_help";
 
   //= ========================
   // Dev user endpoints

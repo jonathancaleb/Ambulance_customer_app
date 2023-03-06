@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
 import 'package:http/http.dart' as http;
 
-import '../../controllers/BookingController.dart';
+import '../../controllers/RequestController.dart';
 import '../../controllers/map_controller.dart';
 
 class EditDEliveryLocation extends StatefulWidget {
@@ -16,7 +16,7 @@ class EditDEliveryLocation extends StatefulWidget {
 }
 
 class _EditDEliveryLocationState extends State<EditDEliveryLocation> {
-  final bookingController = Get.put(BookingController());
+  final bookingController = Get.put(RequestController());
   final _controller = TextEditingController();
   var uuid = const Uuid();
   String _sessionToken = "";

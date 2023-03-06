@@ -21,12 +21,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
             backgroundColor: Colors.white,
             title: const Padding(
               padding: EdgeInsets.all(10.0),
-              child: Image(
-                image: Svg('assets/logo.png'),
-              ),
+              // child: Image(
+              //   image: Svg('assets/logo.png'),
+              // ),
             ),
             bottom: TabBar(
-              indicatorColor: const Color(0xffF1CA2D),
+              indicatorColor: const Color(0xFFEF9A9A),
               tabs: [
                 Tab(
                     icon: Text("Profile",

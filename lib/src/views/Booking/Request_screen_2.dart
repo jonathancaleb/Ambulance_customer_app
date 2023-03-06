@@ -4,9 +4,10 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
-import '../../controllers/BookingController.dart';
+import '../../controllers/RequestController.dart';
 import '../../controllers/map_controller.dart';
 import '../../controllers/nav_controller.dart';
+import '../../services/api_service.dart';
 import '../places/places_search_view.dart';
 import 'Widgets/date_time_picker.dart';
 
@@ -21,7 +22,7 @@ class PlaceBookingScreen extends StatefulWidget {
 
 class PlaceBookingScreenState extends State<PlaceBookingScreen>
     with SingleTickerProviderStateMixin {
-  final bookingController = Get.put(BookingController());
+  final bookingController = Get.put(RequestController());
   final navController = Get.put(NavController());
   var currentDateTime = DateTime.now();
   //Vehicle size card index
@@ -69,7 +70,7 @@ class PlaceBookingScreenState extends State<PlaceBookingScreen>
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Card(
-                color: const Color(0xff042B52),
+                color: const Color(0xFFEF9A9A),
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Row(
@@ -129,7 +130,7 @@ class PlaceBookingScreenState extends State<PlaceBookingScreen>
               padding: EdgeInsets.all(8.0),
               child: Center(
                 child: Text(
-                  "And I Would love these capacities",
+                  "Emergency?",
                   style: TextStyle(
                     color: Color(0xff042B52),
                     fontSize: 16,
@@ -144,7 +145,7 @@ class PlaceBookingScreenState extends State<PlaceBookingScreen>
               padding: const EdgeInsets.all(8.0),
               child: Center(
                 child: Text(
-                  "Costs and Times are close estimates",
+                  "Medical Personnel will get in touch shortly",
                   style: TextStyle(
                     color: Colors.grey[800],
                     fontWeight: FontWeight.w600,
@@ -158,7 +159,7 @@ class PlaceBookingScreenState extends State<PlaceBookingScreen>
               padding: EdgeInsets.only(top: 2.0, bottom: 8.0),
               child: Center(
                 child: Text(
-                  "And Pay with",
+                  "Payments",
                   style: TextStyle(
                     color: Color(0xff042B52),
                     fontWeight: FontWeight.bold,
@@ -219,7 +220,7 @@ class PlaceBookingScreenState extends State<PlaceBookingScreen>
                           ),
                           Icon(
                             Icons.arrow_drop_down,
-                            color: Color(0xfff1ca2d),
+                            color: Color(0xff000000),
                             size: 40,
                           ),
                         ],
@@ -244,10 +245,10 @@ class PlaceBookingScreenState extends State<PlaceBookingScreen>
                         height: screenHeight * 0.065,
                         width: screenWidth * 0.15,
                         child: MaterialButton(
-                          color: const Color(0xff042B52),
+                          color: const Color(0xFFEF9A9A),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12.0),
-                              side: const BorderSide(color: Color(0xff042B52))),
+                              side: const BorderSide(color: Color(0xFFEF9A9A))),
                           onPressed: () {
                             navController.subtractFromBookingPosition();
                           },
@@ -258,7 +259,7 @@ class PlaceBookingScreenState extends State<PlaceBookingScreen>
                                 left: -12,
                                 child: Icon(
                                   Icons.arrow_left,
-                                  color: Color(0xfff1ca2d),
+                                  color: Color(0xff000000),
                                   size: 45,
                                 ),
                               )
@@ -268,7 +269,7 @@ class PlaceBookingScreenState extends State<PlaceBookingScreen>
                       ),
                     ),
                     const Spacer(),
-                    DateTimePicker(),
+                    const DateTimePicker(),
                     Padding(
                       padding: const EdgeInsets.only(
                           top: 10, bottom: 5, left: 5, right: 10),
@@ -276,18 +277,20 @@ class PlaceBookingScreenState extends State<PlaceBookingScreen>
                         height: screenHeight * 0.065,
                         width: screenWidth * 0.45,
                         child: MaterialButton(
-                          color: const Color(0xff042B52),
+                          color: const Color(0xFFEF9A9A),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0),
                               side: const BorderSide(
-                                color: Color(0xff042B52),
+                                color: Color(0xFFEF9A9A),
                               )),
-                          onPressed: () {},
+                          onPressed: () {
+                            submitBookingRequest();
+                          },
                           child: const Text(
                             "Let's Move!",
                             style: TextStyle(
                               fontSize: 16,
-                              color: Color(0xfff1ca2d),
+                              color: Color(0xff000000),
                             ),
                           ),
                         ),
@@ -354,7 +357,7 @@ class PlaceBookingScreenState extends State<PlaceBookingScreen>
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0),
                             side: const BorderSide(
-                              color: Color(0xff042B52),
+                              color: Color(0xFFEF9A9A),
                             ),
                           ),
                           onPressed: () {
@@ -366,7 +369,7 @@ class PlaceBookingScreenState extends State<PlaceBookingScreen>
                                 "Cancel",
                                 style: TextStyle(
                                   fontFamily: "Poppins",
-                                  color: Color(0xff042B52),
+                                  color: Color(0xFFEF9A9A),
                                 ),
                               ),
                             ),
@@ -380,10 +383,10 @@ class PlaceBookingScreenState extends State<PlaceBookingScreen>
                         height: screenHeight * 0.05,
                         width: screenWidth * 0.4,
                         child: MaterialButton(
-                          color: const Color(0xff042B52),
+                          color: const Color(0xFFEF9A9A),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12.0),
-                              side: const BorderSide(color: Color(0xff042B52))),
+                              side: const BorderSide(color: Color(0xFFEF9A9A))),
                           onPressed: () {
                             //TODO: Call submit booking request
                           },
@@ -425,7 +428,7 @@ class PlaceBookingScreenState extends State<PlaceBookingScreen>
                   "Confirm pickup location",
                   style: TextStyle(
                     fontFamily: "Poppins",
-                    color: Color(0xffF1CA2D),
+                    color: Color(0xff000000),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -519,10 +522,10 @@ class PlaceBookingScreenState extends State<PlaceBookingScreen>
               mainAxisAlignment: MainAxisAlignment.start,
               children: const [
                 Text(
-                  "Delivery Location",
+                  "Destination Location",
                   style: TextStyle(
                     fontFamily: "Poppins",
-                    color: Color(0xffF1CA2D),
+                    color: Color(0xff000000),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -566,8 +569,8 @@ class PlaceBookingScreenState extends State<PlaceBookingScreen>
       backgroundColor: Colors.transparent,
       builder: (BuildContext context) {
         return PlacesSearchView(
-          title: 'Delivery Location',
-          placeholder: 'Search delivery location...',
+          title: 'Destination Location',
+          placeholder: 'Search destination location...',
           countryCode: getxMapController.currentCountryCode,
           onPlaceSelect: (detail) {
             // getxMapController.updateDeliveryAddress(

@@ -16,14 +16,14 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.white,
-            title: const Padding(
-              padding: EdgeInsets.all(10.0),
-              child: Image(
-                image: Svg('assets/logo.png'),
-              ),
-            ),
+            // title: const Padding(
+            //   padding: EdgeInsets.all(10.0),
+            //   child: Image(
+            //     image: Svg('assets/logo.png'),
+            //   ),
+            // ),
             bottom: TabBar(
-              indicatorColor: const Color(0xffF1CA2D),
+              indicatorColor: const Color(0xFFEF9A9A),
               tabs: [
                 Tab(
                   icon: Text(
@@ -57,7 +57,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                                 child: Icon(
                                   Icons.notifications_none_outlined,
                                   size: 40,
-                                  color: Color(0xffF1CA2D),
+                                  color: Color(0xFFEF9A9A),
                                 ),
                               ),
                             ],

@@ -50,8 +50,8 @@ class _DashboardState extends State<Dashboard> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.next_plan_outlined),
-            label: 'Request-Ambulance',
+            icon: Icon(Icons.car_crash_outlined),
+            label: 'Ambulance',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
@@ -60,8 +60,8 @@ class _DashboardState extends State<Dashboard> {
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTap,
-        selectedItemColor: const Color(0xff042B52),
-        unselectedItemColor: Color(0xffB8B8B8),
+        selectedItemColor: const Color(0xFFFF3D62),
+        unselectedItemColor: const Color(0xffB8B8B8),
       ),
     );
   }

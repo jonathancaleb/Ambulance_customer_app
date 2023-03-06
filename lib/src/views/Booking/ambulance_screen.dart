@@ -2,14 +2,14 @@ import 'dart:async';
 
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
-import '../../controllers/BookingController.dart';
+import '../../controllers/RequestController.dart';
 import '../../controllers/nav_controller.dart';
 import '../widgets/maps_widget.dart';
 import 'OngoingTripScreen.dart';
-import 'PlaceBookingScreen.dart';
+import 'Request_screen_2.dart';
 import '../../controllers/map_controller.dart';
 import '../../services/exporter.dart';
-import 'Widgets/FirstBookingScreen.dart';
+import 'Widgets/Request_screen_1.dart';
 import 'Widgets/StepperProgress.dart';
 
 // import 'driver_matched_screen.dart';
@@ -24,7 +24,7 @@ class AmbulanceScreen extends StatefulWidget {
 class _AmbulanceScreenState extends State<AmbulanceScreen>
     with SingleTickerProviderStateMixin {
   //Inject get controller into home widget
-  final bookingController = Get.put(BookingController());
+  final bookingController = Get.put(RequestController());
   final getxMapController = Get.put(MapController());
   final navController = Get.put(NavController());
 

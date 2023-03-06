@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
 import 'package:http/http.dart' as http;
 
-import '../../controllers/BookingController.dart';
+import '../../controllers/RequestController.dart';
 
 class PickUpAutoComplete extends StatefulWidget {
   const PickUpAutoComplete({Key? key}) : super(key: key);
@@ -15,7 +15,7 @@ class PickUpAutoComplete extends StatefulWidget {
 }
 
 class _PickUpAutoCompleteState extends State<PickUpAutoComplete> {
-  final bookingController = Get.put(BookingController());
+  final bookingController = Get.put(RequestController());
 
   final _controller = TextEditingController();
   var uuid = const Uuid();
